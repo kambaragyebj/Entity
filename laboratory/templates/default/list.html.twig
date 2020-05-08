@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="hidden-new-order">
+                    <div class="float-right">
+                        <a id="manage-orders-new-order" class="btn btn-no-radius waves-effect waves-light btn-outline-success btn-sm" href="/order/new">
+                            <i class="icon wb-plus" aria-hidden="true"></i> Create Order
+                        </a>
+                    </div>
+                </div>
+                <h4 class="card-title">Manage Orders</h4>
+                <p class="card-subtitle">Enter a patient number to list current and previous orders.</p>
+                <div class="row m-b-10">
+                
+                    <div class="col-lg-4">
+                        {{ form(form,{'attr': {'id':'manageOrders', 'class':'custom-validation','novalidate':'novalidate'}}) }}
+                        
+                    </div>
+                </div>
+        
+                <div class="row m-t-20 m-b-5">
+                    <div class="col-md-12">
+                        <div id="patientMsg" class="hide alert text-center alert-warning">Patient not found!</div>
+                        <strong id="patientName"></strong>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table id="ordersTable" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Facility</th>
+                                <th>Specimen Type</th>
+                                <th>Date</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}  
+   
+{% endblock %}
